@@ -11,8 +11,12 @@ export const getCart = (data) => {
 
 
 export const cartAction = () => (dispatch) => {
+    const token = localStorage.getitem('token')
     return axios
-    .get('https://faay-backend-react-jwt.herokuapp.com/cart')
+    .get('https://faay-backend-react-jwt.herokuapp.com/cart',{headers:{
+        "Access-Control-Allow-Origin": "*",
+        "Authorization": `Bearer ${token}`
+    }})
     .then((response)=> {
         console.log('respon get cart from server', response)
         dispatch(getCart(response.data))
