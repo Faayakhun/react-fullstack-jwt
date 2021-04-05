@@ -24,33 +24,22 @@ function Cart() {
                         <th>Nama Barang</th>
                         <th>Harga Barang</th>
                         <th>Deskripsi</th>
-                        <th>Nama Pemesan</th>
                     </tr>
-                </thead>
-            <tbody>
+            </thead>
             { cart.length > 0 ?  (cart.map((item, index) => (
-            <tr key={index}>
-            <td>{item.product[0].productName}</td>
-            <td>{item.product[0].price}</td>
-            <td>{item.product[0].description}</td>
-            <td>{item.user.name}</td>
-            </tr>
+            <tbody key={index}>
+                {item.product.map((barang,i) => (
+                    <tr key ={i}>
+                    <td>{barang.productName}</td>
+                    <td>{barang.price}</td>
+                    <td>{barang.description}</td>
+                    </tr>
+                ))}
+            </tbody>
             
-        ))) : <tr>
-              <td>No Item</td>
-              </tr>}
-              { cart.length > 0 ?  (cart.map((item, index) => (
-            <tr key={index}>
-            <td>{item.product[1].productName}</td>
-            <td>{item.product[1].price}</td>
-            <td>{item.product[1].description}</td>
-            <td>{item.user.name}</td>
-            </tr>
-            
-        ))) : <tr>
-              <td>No Item</td>
-              </tr>}
-      </tbody>
+        ))) :   <tr>
+                <td>No Item</td>
+                </tr>}
             </Table>
             
         </div>
