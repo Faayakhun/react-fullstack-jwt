@@ -18,7 +18,7 @@ function Cart() {
     return (
         <div>
             <h2>CART</h2>
-            <Table>
+            {/* <Table>
             <thead>
                     <tr>
                         <th>Nama Barang</th>
@@ -40,6 +40,26 @@ function Cart() {
         ))) :   <tr>
                 <td>No Item</td>
                 </tr>}
+            </Table> */}
+            <Table>
+            <thead>
+                    <tr>
+                        <th>Nama Barang</th>
+                        <th>Harga Barang</th>
+                        <th>Deskripsi</th>
+                        <th>Nama Pemesan</th>
+                    </tr>
+            </thead>
+            {(cart.user && cart.product) && 
+                <tbody>
+                    <tr>
+                        <td>{cart.product.productName}</td>
+                        <td>{cart.product.price}</td>
+                        <td>{cart.product.description}</td>
+                        <td>{cart.user.name}</td>
+                    </tr>
+                </tbody>
+            }
             </Table>
             
         </div>
